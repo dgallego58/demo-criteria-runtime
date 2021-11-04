@@ -1,10 +1,10 @@
-package com.example.demo.multi.infrastructure.repo.custom.impl;
+package com.example.demo.multi.infrastructure.ports.output.repo.custom.impl;
 
-import com.example.demo.multi.infrastructure.data.Author;
-import com.example.demo.multi.infrastructure.data.Book;
-import com.example.demo.multi.infrastructure.data.Convention;
-import com.example.demo.multi.infrastructure.data.utils.QueryRequest;
-import com.example.demo.multi.infrastructure.repo.custom.AuthorCustomRepo;
+import com.example.demo.multi.infrastructure.ports.input.dto.PageFilterDTO;
+import com.example.demo.multi.infrastructure.ports.output.data.Author;
+import com.example.demo.multi.infrastructure.ports.output.data.Book;
+import com.example.demo.multi.infrastructure.ports.output.data.Convention;
+import com.example.demo.multi.infrastructure.ports.output.repo.custom.AuthorCustomRepo;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,15 +27,15 @@ public class AuthorCustomRepoImpl implements AuthorCustomRepo {
     private EntityManager entityManager;
 
     /**
-     * método consultando con joins (Posible problema N+1 queries) ya que no trae en la consulta todas las relaciones
+     * método consultando con joins (Posible problema N+1 queries), ya que no trae en la consulta todas las relaciones
      * si no hasta que esta se llame
      *
      * @param conditions los filtros a consultar
      * @return la lista de autores
      */
     @Transactional(readOnly = true)
-    public List<Author> authors(QueryRequest conditions) {
-        CriteriaBuilder builder = builder();
+    public List<Author> authors(PageFilterDTO conditions) {
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Author> criteriaQuery = builder.createQuery(Author.class);
         Root<Author> author = criteriaQuery.from(Author.class);
         Join<Author, Book> books = author.join("books", JoinType.LEFT);
@@ -61,10 +61,6 @@ public class AuthorCustomRepoImpl implements AuthorCustomRepo {
                 .getResultList();
     }
 
-    private CriteriaBuilder builder() {
-        return entityManager.getCriteriaBuilder();
-    }
-
     /**
      * método seguro que hace Fetch en la consulta para obtener las relaciones
      *
@@ -72,8 +68,8 @@ public class AuthorCustomRepoImpl implements AuthorCustomRepo {
      * @return la lista de autores
      */
     @Transactional(readOnly = true)
-    public List<Author> fetchAuthorsWithRelations(QueryRequest conditions) {
-        CriteriaBuilder builder = builder();
+    public List<Author> fetchAuthorsWithRelations(PageFilterDTO conditions) {
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Author> criteriaQuery = builder.createQuery(Author.class);
         Root<Author> author = criteriaQuery.from(Author.class);
         Join<Author, Book> books = author.join("books", JoinType.LEFT);

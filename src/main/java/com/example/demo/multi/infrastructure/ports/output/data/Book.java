@@ -1,4 +1,4 @@
-package com.example.demo.multi.infrastructure.data;
+package com.example.demo.multi.infrastructure.ports.output.data;
 
 import org.hibernate.Hibernate;
 
@@ -6,12 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
+@Table(name = "Book", indexes = {
+        @Index(name = "idx_book_title", columnList = "title")
+})
 @Entity
 public class Book {
     @Id

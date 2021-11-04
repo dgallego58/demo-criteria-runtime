@@ -1,4 +1,4 @@
-package com.example.demo.multi.infrastructure.data;
+package com.example.demo.multi.infrastructure.ports.output.data;
 
 import org.hibernate.Hibernate;
 

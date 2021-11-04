@@ -1,12 +1,12 @@
-package com.example.demo.multi.infrastructure.repo.custom.impl;
+package com.example.demo.multi.infrastructure.ports.output.repo.custom.impl;
 
-import com.example.demo.multi.infrastructure.data.Author;
-import com.example.demo.multi.infrastructure.data.Book;
-import com.example.demo.multi.infrastructure.data.Convention;
-import com.example.demo.multi.infrastructure.data.utils.Filter;
-import com.example.demo.multi.infrastructure.data.utils.QueryRequest;
-import com.example.demo.multi.infrastructure.repo.AuthorRepository;
-import com.example.demo.multi.infrastructure.repo.BookRepository;
+import com.example.demo.multi.infrastructure.ports.input.dto.PageFilterDTO;
+import com.example.demo.multi.infrastructure.ports.input.utils.Filter;
+import com.example.demo.multi.infrastructure.ports.output.data.Author;
+import com.example.demo.multi.infrastructure.ports.output.data.Book;
+import com.example.demo.multi.infrastructure.ports.output.data.Convention;
+import com.example.demo.multi.infrastructure.ports.output.repo.AuthorRepository;
+import com.example.demo.multi.infrastructure.ports.output.repo.BookRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,21 +54,21 @@ class AuthorCustomRepoImplTest {
     void testInsertion() {
         authorRepository.save(createAuthor());
 
-        QueryRequest queryRequest = new QueryRequest();
-        queryRequest.setOffset(0);
-        queryRequest.setLimit(1);
+        PageFilterDTO pageFilterDTO = new PageFilterDTO()
+                .setOffset(0)
+                .setLimit(1);
         var filters = new EnumMap<>(Filter.class);
         filters.put(Filter.BOOK_TITLE, "Cien"); //comentar para ver el log
         filters.put(Filter.AUTHOR_NAME, "Author1");
         filters.put(Filter.CONVENTION_LOCATION, "drid");
-        queryRequest.setFilters(filters);
+        pageFilterDTO.setFilters(filters);
         log.info("Authors result with no fetch");
-        var result = authorRepository.authors(queryRequest);
+        var result = authorRepository.authors(pageFilterDTO);
         //assertThat(result).isNotEmpty();
         result.forEach(author -> log.info("books {}", author.getBooks()));
 
         log.info("Authors result with fetch relations");
-        var fetch = authorRepository.fetchAuthorsWithRelations(queryRequest);
+        var fetch = authorRepository.fetchAuthorsWithRelations(pageFilterDTO);
         fetch.forEach(author -> log.info("books {}", author.getBooks()));
         assertThat(fetch)
                 .first()

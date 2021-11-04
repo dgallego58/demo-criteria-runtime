@@ -1,4 +1,4 @@
-package com.example.demo.multi.infrastructure.data;
+package com.example.demo.multi.infrastructure.ports.output.data;
 
 import org.hibernate.Hibernate;
 
@@ -75,21 +75,21 @@ public class Author {
         return getClass().hashCode();
     }
 
-    public Set<Convention> getConventions() {
-        return conventions;
-    }
-
-    public Author setConventions(Set<Convention> conventions) {
-        this.conventions = conventions;
-        return this;
-    }
-
     public UUID getId() {
         return id;
     }
 
     public Author setId(UUID id) {
         this.id = id;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Author setName(String name) {
+        this.name = name;
         return this;
     }
 
@@ -102,11 +102,12 @@ public class Author {
         return this;
     }
 
-    public String getName() {
-        return name;
+    public Set<Convention> getConventions() {
+        return conventions;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Author setConventions(Set<Convention> conventions) {
+        this.conventions = conventions;
+        return this;
     }
 }
