@@ -1,8 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.single.controller;
 
-import com.example.demo.entity.Usuario;
-import com.example.demo.service.UsuarioRepoCustom;
-import com.example.demo.util.UsuarioEnum;
+import com.example.demo.single.entity.Usuario;
+import com.example.demo.single.service.UsuarioRepoCustom;
+import com.example.demo.single.util.UsuarioEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;

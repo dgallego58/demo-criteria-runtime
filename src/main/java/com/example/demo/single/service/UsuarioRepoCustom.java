@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.single.service;
 
-import com.example.demo.entity.Usuario;
+import com.example.demo.single.entity.Usuario;
 
 import java.util.List;
 import java.util.Map;

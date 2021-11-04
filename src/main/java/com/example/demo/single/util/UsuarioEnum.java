@@ -1,4 +1,4 @@
-package com.example.demo.util;
+package com.example.demo.single.util;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 

@@ -1,6 +1,6 @@
-package com.example.demo.dto;
+package com.example.demo.single.dto;
 
-import com.example.demo.util.UsuarioEnum;
+import com.example.demo.single.util.UsuarioEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -1,12 +1,15 @@
-package com.example.demo.service;
+package com.example.demo.single.service;
 
-import com.example.demo.entity.Usuario;
+import com.example.demo.single.entity.Usuario;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,16 +33,17 @@ public class UsuarioRepoCustomImpl implements UsuarioRepoCustom {
 
             switch (field){
                 case "id":
-                    predicates.add(cb.equal(root.get(field), (Long)value));
+                    predicates.add(cb.equal(root.get(field), (Long) value));
                     break;
                 case "nombre":
                 case "apellido":
-                    predicates.add(cb.like(root.get(field), (String)"%"+value+"%" ));
+                    predicates.add(cb.like(root.get(field), (String) "%" + value + "%"));
                     break;
                 case "cedula":
-                    predicates.add(cb.like(root.get(field), (String)value+"%" ));
+                    predicates.add(cb.like(root.get(field), (String) value + "%"));
                     break;
-
+                default:
+                    break;
             }
         });
         query.select(root).where(predicates.toArray(new Predicate[0]));
