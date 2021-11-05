@@ -34,7 +34,7 @@ Para ejecutarlo solo es necesario ejecutar el siguiente comando (No es necesario
 .\mvnw clean install spring-boot:run -DskipTests=true 
 ```
 
-El context servlet path (el servidor definido) es `/demo-criteria`
+El context servlet path (el servidor definido) es `/demo-criteria`, luego:
 
-Para ir al swagger UI: `http://localhost:8080/demo-criteria/swagger-ui.html`
-Para los mappings: `http://localhost:8080/demo-criteria/actuator/mappings`
+- Para ir al swagger UI: `http://localhost:8080/demo-criteria/swagger-ui.html`
+- Para los mappings: `http://localhost:8080/demo-criteria/actuator/mappings`
