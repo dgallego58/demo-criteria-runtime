@@ -2,7 +2,7 @@
 
 El proposito de este demo es para ver los problemas de consultas cuando en un requisito nos piden: "Deseamos que se pueda consultar X cosa cuando le paso Y palabra..."
 
-Estos requisitos generalmente son un 🥊 K.O a nuestras consultas en SQL, más cuando estás cargan con alguna relación o peor varias relaciones que tienen a su vez entidades con otras relaciones; es acá empieza a generar malestar el módelo de datos si este no está bien definido y la normalización no es correcta.
+Estos requisitos generalmente son un 🥊 K.O a nuestras consultas en SQL, más cuando estás cargan con alguna relación o peor varias relaciones que tienen a su vez entidades con otras relaciones; es aquí donde se empieza a generar malestar hacia el módelo de datos si este no está bien definido y la normalización no es la adecuada.
 
 🏴 Para entender ⚠️
 
@@ -12,3 +12,8 @@ Estos requisitos generalmente son un 🥊 K.O a nuestras consultas en SQL, más 
 - [x] Un módelo normalizado garantiza consistencia, sin embargo se obtiene complejidad
 - [x] Un módelo normalizado facilita la eliminación y/o modificación de tuplas, salvando condicionales en las consultas
 - [x] Un módelo normalizado puede o no facilitar consultas y puede o no mejorar el performance según la misma.
+
+El caso ejemplo que se visualiza acá es de un escritor y sus convenciones donde ha realizado sus escritos:
+  Un autor puede tener varios libros y varios libros pueden ser de multiples autores
+  A una convención pueden ir varios autores y un autor puede participar en una a la vez, pero pudo haber participado en varias
+  
