@@ -20,4 +20,4 @@ autores y un autor puede participar en una a la vez, pero pudo haber participado
 Este es el modelo ORM que presenta Java, no tocaré SQL en este demo, solo la ejecución que interpreta el proveedor de
 persistencia:
 
-![img](./img/Author.png?v=4&s=200)
+[[./img/Author.png | width=100px | alt=Bridge]]
