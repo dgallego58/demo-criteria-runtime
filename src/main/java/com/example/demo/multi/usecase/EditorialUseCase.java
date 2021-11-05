@@ -9,5 +9,9 @@ public interface EditorialUseCase {
 
     AuthorDTO register(AuthorDTO dto);
 
-    List<AuthorDTO> getAllAuthorsByFilter(PageFilterDTO pageFilterDTO);
+    List<AuthorDTO> nPlus1Filter(PageFilterDTO pageFilterDTO);
+
+    List<AuthorDTO> inMemoryFilterPagination(PageFilterDTO pageFilterDTO);
+
+    List<AuthorDTO> partitionFilter(PageFilterDTO pageFilterDTO);
 }

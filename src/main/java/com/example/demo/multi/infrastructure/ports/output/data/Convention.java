@@ -2,7 +2,6 @@ package com.example.demo.multi.infrastructure.ports.output.data;
 
 import org.hibernate.Hibernate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -22,7 +21,6 @@ import java.util.UUID;
 @Entity
 public class Convention {
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue
     private UUID id;
 

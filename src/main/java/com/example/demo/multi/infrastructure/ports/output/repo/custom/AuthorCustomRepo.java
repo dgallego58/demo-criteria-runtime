@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface AuthorCustomRepo {
 
-    List<Author> authors(PageFilterDTO conditions);
+    List<Author> authorsNPlus1(PageFilterDTO conditions);
 
-    List<Author> fetchAuthorsWithRelations(PageFilterDTO conditions);
+    List<Author> authorsInMemoryFilterPagination(PageFilterDTO conditions);
+
+    List<Author> authorsPartitionQuery(PageFilterDTO filterDTO);
 }

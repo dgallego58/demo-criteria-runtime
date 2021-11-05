@@ -5,16 +5,25 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.EnumMap;
 
+@Schema(description = "the filters used, offset is where the record start, and limit how many records will be loaded", example = "{\n" +
+        "  \"limit\": 20,\n" +
+        "  \"offset\":" +
+        " 0,\n" +
+        "  " +
+        "  \"" +
+        "filters\": {\n" +
+        "    \"name\": \"Gabriel García Marquez\",\n" +
+        "    \"title\": \"Cien Años de Soledad\",\n" +
+        "    \"location\": \"UNAL\"\n" +
+        "  }" +
+        "\n" +
+        "}")
 public class PageFilterDTO {
 
+
     private int limit;
+
     private int offset;
-    @Schema(description = "the filters used", example = "{\n" +
-            "  \"name\":" +
-            "  \"Gabriel García Marquez\",\n" +
-            "  \"title\": \"Cien Años de Soledad\",\n" +
-            "  \"location\": \"UNAL\"\n" +
-            "}")
     private EnumMap<Filter, Object> filters;
 
     public PageFilterDTO() {

@@ -20,7 +20,6 @@ import java.util.UUID;
 @Entity
 public class Book {
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue
     private UUID id;
 

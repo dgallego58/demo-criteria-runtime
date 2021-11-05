@@ -21,22 +21,15 @@ import java.util.UUID;
 public class Author {
 
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue
     private UUID id;
     @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "books_author",
-            joinColumns = {
-                    @JoinColumn(name = "author_id", foreignKey = @ForeignKey(name = "author_book_fk"))
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "book_id", foreignKey = @ForeignKey(name = "book_author_fk"))
-
-            }
-    )
+            joinColumns = @JoinColumn(name = "author_id", foreignKey = @ForeignKey(name = "author_book_fk")),
+            inverseJoinColumns = @JoinColumn(name = "book_id", foreignKey = @ForeignKey(name = "book_author_fk")))
     private Set<Book> books;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -46,6 +39,16 @@ public class Author {
         this.books = new HashSet<>();
         this.conventions = new HashSet<>();
         this.id = UUID.randomUUID();
+    }
+
+    public void addBook(Book book) {
+        this.books.add(book);
+        book.addAuthor(this);
+    }
+
+    public void removeBook(Book book) {
+        this.books.add(book);
+        book.getAuthors().remove(this);
     }
 
     public void addConvention(Convention convention) {

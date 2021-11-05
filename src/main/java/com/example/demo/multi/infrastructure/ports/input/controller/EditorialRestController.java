@@ -31,7 +31,18 @@ public class EditorialRestController implements ContractSwaggerDefinition {
                     "informacion", "persona",
                     "presentacion", "reporte"},
             value = "metric_authors")
-    public ResponseEntity<List<AuthorDTO>> getAuthorsByFilter(PageFilterDTO pageFilterDTO) {
-        return ResponseEntity.ok(editorialUseCase.getAllAuthorsByFilter(pageFilterDTO));
+    public ResponseEntity<List<AuthorDTO>> nPlus1Fetch(PageFilterDTO pageFilterDTO) {
+        return ResponseEntity.ok(editorialUseCase.nPlus1Filter(pageFilterDTO));
+    }
+
+    @Override
+    public ResponseEntity<List<AuthorDTO>> inMemoryPaginationFetch(PageFilterDTO pageFilterDTO) {
+
+        return ResponseEntity.ok(editorialUseCase.inMemoryFilterPagination(pageFilterDTO));
+    }
+
+    @Override
+    public ResponseEntity<List<AuthorDTO>> partitionFetch(PageFilterDTO pageFilterDTO) {
+        return ResponseEntity.ok(editorialUseCase.partitionFilter(pageFilterDTO));
     }
 }
