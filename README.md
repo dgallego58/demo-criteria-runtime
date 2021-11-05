@@ -21,4 +21,4 @@ Este es el modelo ORM que presenta Java, no tocaré SQL en este demo, solo la ej
 persistencia:
 
 
-<img src="/img/Author.png" height="200" title="author_model" width="500"/>
+<img src="./img/Author.png" title="author_model" height="250" width="250"/>
