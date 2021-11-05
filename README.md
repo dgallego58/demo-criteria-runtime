@@ -25,7 +25,7 @@ Este es el modelo ORM que presenta Java, no tocaré SQL en este demo, solo la ej
 persistencia:
 
 <div align="center">
-<img class="middle" src="./img/Author.png" title="author_model" height="400" width="370alt="author_model"/>
+<img class="middle" src="./img/Author.png" title="author_model" height="500" width="450" alt="author_model"/>
 </div>
 
 Para ejecutarlo solo es necesario ejecutar el siguiente comando (No es necesario tener maven instalado):
