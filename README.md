@@ -28,8 +28,13 @@ persistencia:
 <img class="middle" src="./img/Author.png" title="author_model" height="400" width="370alt="author_model"/>
 </div>
 
-Para ejecutarlo solo es necesario
+Para ejecutarlo solo es necesario ejecutar el siguiente comando (No es necesario tener maven instalado):
 
 ```cmd
-.\mvnw clean install spring-boot:run
+.\mvnw clean install spring-boot:run -DskipTests=true 
 ```
+
+El context servlet path (el servidor definido) es `/demo-criteria`
+
+Para ir al swagger UI: `http://localhost:8080/demo-criteria/swagger-ui.html`
+Para los mappings: `http://localhost:8080/demo-criteria/actuator/mappings`
