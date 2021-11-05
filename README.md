@@ -14,6 +14,10 @@ Estos requisitos generalmente son un 🥊 K.O a nuestras consultas en SQL, más 
 - [x] Un módelo normalizado puede o no facilitar consultas y puede o no mejorar el performance según la misma.
 
 El caso ejemplo que se visualiza acá es de un escritor y sus convenciones donde ha realizado sus escritos:
-  Un autor puede tener varios libros y varios libros pueden ser de multiples autores
-  A una convención pueden ir varios autores y un autor puede participar en una a la vez, pero pudo haber participado en varias
-  
+Un autor puede tener varios libros y varios libros pueden ser de multiples autores A una convención pueden ir varios
+autores y un autor puede participar en una a la vez, pero pudo haber participado en varias
+
+Este es el modelo ORM que presenta Java, no tocaré SQL en este demo, solo la ejecución que interpreta el proveedor de
+persistencia:
+
+[Author and Books](/img/Author.png)
